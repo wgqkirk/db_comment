@@ -1,0 +1,16 @@
+body{
+	margin-top: 20px;
+}
+div.col-xs-4{
+	text-align: -webkit-center;
+}
+.col-xs-4 label{
+	padding-top: 5px;
+}
+.col-xs-8{
+	margin-bottom: 10px;
+	padding-right: 0px;
+}
+.col-sm-6 .btn{
+	margin-right: 5px;
+}

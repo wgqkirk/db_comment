@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/toastr.min.css" />
+    <link rel="stylesheet" href="../static/css/wangguoqianghoutai.css" />
+    <link rel="stylesheet" href="../static/css/table_commtent.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-switch.min.css">
+
+    <title>修改备注</title>
+</head>
+<body class="body">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index/">DB管理</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            		<li><a href="/index/"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;备注管理</a></li>
+{#                    <li class="active"><a href="/coach_student/"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;我的学员</a></li>#}
+{#            		<li><a href="/coach_inputdata/"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;学员数据更新</a></li>#}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          		<li class="dropdown">
+				  <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{ pageusername }}
+				</a>
+				</li>
+
+{#                <li style="margin-top: 10px"><input name="status" type="checkbox" data-size="small"></li>#}
+          	    <li><a href="#" style="padding-right: 3px;"><span class="glyphicon glyphicon-off">&nbsp;退出</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+    	<div class="row">
+      <div class="col-xs-1">
+            <div>
+					<a onclick="javascript:history.go(-1);location.replace(document.referrer);" style="position: fixed" class="btn btn-default pull-left"> &nbsp;&nbsp;<span class="glyphicon glyphicon-step-backward"></span> &nbsp;返回</a>
+      	    </div>
+      </div>
+      <div class="col-xs-10">
+      		<div class="page-header">
+                <h4 id="table_name">{{ table_name }}</h4><h4>(<input  id="table_comment" value="{{ title_table_comment }}">)</h4>
+      		</div>
+						<ul class="nav nav-tabs">
+						  <li role="presentation" class="active"><a>修改</a></li>
+						</ul>
+                        <table class="table table-responsive table-striped">
+                                                <thead>
+                                                <tr><th>列名</th><th>字段类型</th><th>是否为空</th><th>默认值</th><th>备注(可修改)</th></tr>
+                                                </thead>
+                                                <tbody id="tbody">
+                                                {% for i in query_set %}
+                                                    <tr id="infotr"><td id="c_id" style="display: none">{{ i.id|floatformat:"0" }}</td><td id="c_name">{{ i.COLUMN_NAME }}</td><td>{{ i.DATA_TYPE }}</td><td>{{ i.is_nullable }}</td><td>{{ i.COLUMN_DEFAULT }}</td><td width="50%"><input type="text" name="c_comment" value="{{ i.COLUMN_COMMENT }}"></td>
+
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                        </table>
+
+      </div>
+        <div class="col-xs-1">
+            <a style="position: fixed" class="btn btn-default pull-right" type="button" href="/download_excel?table_name={{ table_name }}">下载</a>
+            <button style="position: fixed;top: 120px;" class="btn btn-default pull-right" type="button" onclick="change();">保存</button>
+        </div>
+        </div>
+        <div class="modal fade" id="loadingModal">
+            <div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px"></div>
+            <div class="progress progress-striped active" style="margin-bottom: 0;"></div>
+            <div class="progress-bar" style="width: 100%;"></div>
+        </div>
+    </div>
+
+
+</body>
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/change_comment.js"></script>
+    <script src="../static/js/toastr.min.js"></script>
+    <script src="../static/js/bootstrap-switch.min.js"></script>
+    <script type="text/javascript">
+            toastr.options.positionClass = 'toast-top-center';
+            toastr.options.timeOut='2000';
+    </script>
+
+
+</html>

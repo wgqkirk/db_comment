@@ -1,0 +1,31 @@
+.table>tbody>tr>td{
+              vertical-align: middle;
+          }
+          th{
+              text-align: center;
+              width: auto;
+          }
+          td{
+            text-align: center;
+          }
+          td>input {
+            border: 0px;
+            background-color: inherit;
+            outline: none;
+            width: 100%;
+            text-align: center;
+          }
+          h4>input {
+            border: 0px;
+            background-color: inherit;
+            outline: none;
+            text-align: center;
+          }
+            .list-group-item {
+            position: relative;
+            display: block;
+            padding: 10px 0px;
+            margin-bottom: -1px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            }

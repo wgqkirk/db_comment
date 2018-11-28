@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/wangguoqianghoutai.css" />
+    <style>
+          .table>tbody>tr>td{
+              vertical-align: middle;
+          }
+    </style>
+    <title>表备注</title>
+</head>
+<body class="body">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index/">DB管理</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            		<li><a href="/index/"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页</a></li>
+{#                    <li class="active"><a href="/coach_student/"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;我的学员</a></li>#}
+{#            		<li><a href="/coach_inputdata/"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;学员数据更新</a></li>#}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          		<li class="dropdown">
+				  <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{ pageusername }}
+				</a>
+				</li>
+          	<li><a href="/signout" style="padding-right: 3px;"><span class="glyphicon glyphicon-off">&nbsp;退出</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+    	<div class="row">
+      <div class="col-md-2">
+      	<div class="list-group">
+					<a href="/index/" class="list-group-item ">数据库表管理</a>
+                    <a href="/table_search/"  class="list-group-item active">搜索</a>
+      	</div>
+      </div>
+      <div class="col-md-10">
+      		<div class="page-header">
+      			<h4>TEST环境表管理</h4>
+      		</div>
+						<ul class="nav nav-tabs">
+						  <li><a href="/index/"  style="border-bottom: 1px;" class="list-group-item">数据库表管理</a></li>
+						  <li role="presentation"  class="active"><a href="/table_search/" >搜索</a></li>
+						</ul>
+
+      </div>
+    	</div>
+            {{ page|safe }}
+    </div>
+</body>
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</html>

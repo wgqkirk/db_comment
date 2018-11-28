@@ -1,0 +1,63 @@
+.navbar-default{
+	color: #07112d;
+    box-shadow: 8px -3px 4px 2px;
+}
+.index{
+	font-family: "microsoft yahei" sans-serif;
+	padding-top: 70px;
+
+}
+.body{
+	font-family: "microsoft yahei" sans-serif;
+	padding-top: 70px;
+}
+.page-header{
+	    margin: 20px 0 20px;
+}
+
+
+#footer{
+	text-align: center;
+}
+#jinggao a{
+	text-decoration: none;
+}
+#jinggao p{
+	    display: inline-block;
+}
+#jinggao .progress{
+	    margin-bottom: 15px;
+}
+#liuyan .media-object{
+	width: 55px;
+	height: 55px;	
+}
+#liuyan .media-left,#liuyan .media-right{
+	padding-top: 20px;
+}
+#liuyan .media img,.media p{
+	display: inline-block;
+}
+#liuyan .well{
+	padding: 10px;
+}
+#liuyan .btn-default{
+	    margin: 15px 0;
+}
+.usersearchform label{
+	margin-top: 5px;
+}
+.usersearchform .btn-default{
+	margin-right: 10px;
+}
+.usersearchform{
+	padding: 10px;
+    border: solid 1px #ddd;
+    border-top: none;
+}
+#tag .taglist{
+	padding-top: 15px;
+}
+#tag .alert{
+	margin-right: 15px;
+}

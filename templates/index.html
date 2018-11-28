@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/wangguoqianghoutai.css" />
+    <style>
+          .table>tbody>tr>td{
+              vertical-align: middle;
+          }
+    </style>
+    <title>表备注</title>
+</head>
+<body class="body">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index/">DB管理</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            		<li><a href="/index/"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;备注管理</a></li>
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          		<li class="dropdown">
+				  <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{ pageusername }}
+				</a>
+				</li>
+          	<li><a href="#" style="padding-right: 3px;"><span class="glyphicon glyphicon-off">&nbsp;退出</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+    	<div class="row">
+      <div class="col-md-2">
+      	<div class="list-group">
+					<a href="/index/" class="list-group-item active">数据库表管理</a>
+
+      	</div>
+      </div>
+      <div class="col-md-10">
+      		<div class="page-header">
+      			<h4>数据库表备注管理</h4>
+      		</div>
+						<ul class="nav nav-tabs">
+						  <li role="presentation" class="active"><a href="/index/">数据库表管理</a></li>
+						  <li class="pull-right"><form class="Search-form form-inline" method="POST" action="\index\" autocomplete="off">
+                          <div class="form-group">
+                          <input name="table_name" id="table_name" type="text" class="form-control" placeholder='表名'>
+                          <input name="comments" id="comments" type="text" class="form-control" placeholder="备注">
+                          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                        </form></li>
+						</ul>
+
+                        <table class="table table-responsive table-striped">
+                                                <thead>
+                                                <tr><th>ID</th><th>表名</th><th>备注</th></tr>
+                                                </thead>
+                                                <tbody id="tbody">
+
+                                                {% for i in query_set %}
+                                                    <tr id="infotr"><td id="t_id">{{ i.id|floatformat:"0" }}</td><td id="t_name">{{ i.table_name }}</td><td>{{ i.TABLE_COMMENT }}</td>
+                                                        <td><div class="btn-group">
+                                                          <a type="button" href="/table_comment_edit/?table_name={{ i.table_name }}" class="btn btn-default">修改
+                                                          </a>
+                                                        </div>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                {% if not query_set %}
+                                                    <td colspan="3" style="text-align: center;color: red">暂无数据！</td>
+                                                {% endif %}
+                                                </tbody>
+                        </table>
+      </div>
+    	</div>
+            {{ page|safe }}
+    </div>
+</body>
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+</html>
