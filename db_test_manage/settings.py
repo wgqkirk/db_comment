@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'vphotos',
         'USER':'root',
         'PASSWORD': 'newpwd',
-        'HOST':'127.0.0.1',
+        'HOST':'10.3.149.121',
     }
 }
 DATABASES_SLAVE = {
@@ -97,7 +97,7 @@ DATABASES_SLAVE = {
         'NAME': 'vphotos',
         'USER':'root',
         'PASSWORD': 'newpwd',
-        'HOST':'127.0.0.1',
+        'HOST':'10.3.149.121',
     }
 }
 
